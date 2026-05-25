@@ -2,7 +2,7 @@
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
-    <title>Svijet Nogometa - Dashboard 2018 i 2022</title>
+    <title>Svijet Nogometa - Sveobuhvatni Analitički Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
@@ -37,10 +37,9 @@
                 <h2 id="yearly-title">Pregled prvenstva</h2>
                 <div id="cup-info-stats"></div>
                 
-                <div id="filter-container-advanced" class="hidden" style="margin-top: 15px; border-top: 1px solid #cbd5e0; padding-top: 15px;">
+                <div id="filter-container-universal" style="margin-top: 15px; border-top: 1px solid #cbd5e0; padding-top: 15px;">
                     <label for="team-select" style="font-weight: bold; color: #1a365d; margin-right: 10px;">Filtriraj analitiku prema reprezentaciji:</label>
-                    <select id="team-select" class="styled-select">
-                        </select>
+                    <select id="team-select" class="styled-select"></select>
                 </div>
             </div>
 
@@ -49,20 +48,17 @@
                     <h2 id="chart1-title">Grafikon 1</h2>
                     <div id="chart1"></div>
                 </div>
-
-                <div id="extra-charts-advanced" class="hidden">
-                    <div class="card">
-                        <h2>Grafikon 2: Kretanje posjeda lopte (%) kroz turnir</h2>
-                        <div id="chart2-possession"></div>
-                    </div>
-                    <div class="card">
-                        <h2>Grafikon 3: Odnos ukupnih udaraca i udaraca u okvir gola</h2>
-                        <div id="chart3-attempts"></div>
-                    </div>
-                    <div class="card">
-                        <h2>Grafikon 4: Disciplina - Odnos faulova i žutih kartona po utakmicama</h2>
-                        <div id="chart4-discipline"></div>
-                    </div>
+                <div class="card">
+                    <h2 id="chart2-title">Grafikon 2</h2>
+                    <div id="chart2"></div>
+                </div>
+                <div class="card">
+                    <h2 id="chart3-title">Grafikon 3</h2>
+                    <div id="chart3"></div>
+                </div>
+                <div class="card">
+                    <h2 id="chart4-title">Grafikon 4</h2>
+                    <div id="chart4"></div>
                 </div>
             </div>
         </div>

@@ -1,65 +1,199 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f2f5;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
 }
-.navbar {
-    background-color: #1a365d; padding: 10px 20px; position: fixed;
-    top: 0; width: 100%; z-index: 1000; display: flex; gap: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15); overflow-x: auto; box-sizing: border-box;
-}
-.nav-btn {
-    background-color: #2b6cb0; color: white; border: none; padding: 8px 16px;
-    font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer;
-    transition: background 0.2s; white-space: nowrap;
-}
-.nav-btn:hover { background-color: #4299e1; }
-.nav-btn.active { background-color: #ecc94b; color: #1a365d; }
 
-.container { margin-top: 80px; padding: 20px; max-width: 1200px; margin-left: auto; margin-right: auto; }
-h1 { text-align: center; color: #1a365d; margin-bottom: 25px; }
-.card { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 25px; }
-.map-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
-.info-sidebar { background-color: #fffdf5; border-left: 5px solid #d69e2e; }
-.placeholder-text { color: #a0aec0; font-style: italic; margin-top: 40px; text-align: center; }
-.stat-box { margin-top: 15px; font-size: 16px; line-height: 1.6; }
-.stat-number { font-size: 24px; font-weight: bold; color: #2c5282; }
-.bg-highlight-blue { background-color: #ebf8ff; border-left: 5px solid #3182ce; }
-h2 { color: #2b5c8f; margin-top: 0; }
-.subtitle { color: #718096; margin-top: -5px; font-size: 13px; }
-#cup-info-stats { display: flex; gap: 40px; font-size: 18px; }
+.navbar {
+    background-color: #1a365d;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    gap: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+.nav-btn {
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background-color: #4299e1;
+}
+
+.nav-btn.active {
+    background-color: #ecc94b;
+    color: #1a365d;
+}
+
+.container {
+    margin-top: 80px;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #1a365d;
+    margin-bottom: 25px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+}
+
+.map-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.info-sidebar {
+    background-color: #fffdf5;
+    border-left: 5px solid #d69e2e;
+}
+
+.placeholder-text {
+    color: #a0aec0;
+    font-style: italic;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.stat-box {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c5282;
+}
+
+.bg-highlight-blue {
+    background-color: #ebf8ff;
+    border-left: 5px solid #3182ce;
+}
+
+h2 {
+    color: #2b5c8f;
+    margin-top: 0;
+}
+
+.subtitle {
+    color: #718096;
+    margin-top: -5px;
+    font-size: 13px;
+}
+
+#cup-info-stats {
+    display: flex;
+    gap: 40px;
+    font-size: 18px;
+}
 
 .styled-select {
-    padding: 6px 12px; font-size: 14px; font-weight: bold;
-    color: #2b6cb0; background-color: white; border: 2px solid #2b6cb0;
-    border-radius: 4px; cursor: pointer; outline: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2b6cb0;
+    background-color: white;
+    border: 2px solid #2b6cb0;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
 }
 
-.screen { display: block; }
-.hidden { display: none !important; }
+.screen {
+    display: block;
+}
 
-/* Karta i D3 Zoom okruženje */
+.hidden {
+    display: none !important;
+}
+
 #world-map {
-    background-color: #ebf8ff; /* Svijetloplava boja oceana u pozadini karte */
+    background-color: #ebf8ff;
     border-radius: 6px;
     overflow: hidden;
 }
-.country { stroke: #ffffff; stroke-width: 0.5px; transition: fill 0.2s; }
-.country:hover { stroke: #1a365d; stroke-width: 1px; cursor: pointer; }
 
-/* Klase boja za elemente grafova */
-.bar-goals-for { fill: #3182ce; }
-.bar-goals-against { fill: #e53e3e; }
-.bar-attempts-total { fill: #dd6b20; }
-.bar-attempts-target { fill: #319795; }
+.country {
+    stroke: #ffffff;
+    stroke-width: 0.5px;
+    transition: fill 0.2s;
+}
 
-.line-possession { fill: none; stroke: #805ad5; stroke-width: 3px; }
-.dot-possession { fill: #805ad5; cursor: pointer; }
-.dot-discipline { fill: #ecc94b; stroke: #b7791f; stroke-width: 2px; cursor: pointer; }
+.country:hover {
+    stroke: #1a365d;
+    stroke-width: 1px;
+    cursor: pointer;
+}
 
-/* Tooltip */
+.bar-goals-for {
+    fill: #3182ce;
+}
+
+.bar-goals-against {
+    fill: #e53e3e;
+}
+
+.bar-attempts-total {
+    fill: #dd6b20;
+}
+
+.bar-attempts-target {
+    fill: #319795;
+}
+
+.line-possession {
+    fill: none;
+    stroke: #805ad5;
+    stroke-width: 3px;
+}
+
+.dot-possession {
+    fill: #805ad5;
+    cursor: pointer;
+}
+
+.dot-discipline {
+    fill: #ecc94b;
+    stroke: #b7791f;
+    stroke-width: 2px;
+    cursor: pointer;
+}
+
 #tooltip {
-    position: absolute; width: auto; height: auto; padding: 10px;
-    background-color: rgba(0, 0, 0, 0.85); color: white; border-radius: 5px;
-    pointer-events: none; font-size: 13px; z-index: 2000;
+    position: absolute;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    border-radius: 5px;
+    pointer-events: none;
+    font-size: 13px;
+    z-index: 2000;
 }
