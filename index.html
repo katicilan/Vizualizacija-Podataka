@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Svijet Nogometa - Dashboard 2018 i 2022</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+    <div class="navbar" id="nav-bar">
+        <button class="nav-btn active" onclick="switchScreen('general')">Karta osvajača i statistika</button>
+    </div>
+
+    <div class="container">
+        <h1>Vizualizacija podataka Svjetskih Prvenstava (D3.js)</h1>
+
+        <div id="screen-general" class="screen">
+            <div class="map-layout">
+                <div class="card map-card">
+                    <h2>Karta svjetskih prvaka (Click-to-Zoom)</h2>
+                    <p class="subtitle">Kliknite na državu za automatsko zumiranje i prikaz statistike. Kliknite na ocean za reset.</p>
+                    <div id="world-map"></div>
+                </div>
+                
+                <div class="card info-sidebar" id="sidebar-info">
+                    <h2>Statistika države</h2>
+                    <div id="sidebar-content">
+                        <p class="placeholder-text">Kliknite na državu na karti za prikaz podataka i zumiranje.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-yearly" class="screen hidden">
+            <div class="card bg-highlight-blue">
+                <h2 id="yearly-title">Pregled prvenstva</h2>
+                <div id="cup-info-stats"></div>
+                
+                <div id="filter-container-advanced" class="hidden" style="margin-top: 15px; border-top: 1px solid #cbd5e0; padding-top: 15px;">
+                    <label for="team-select" style="font-weight: bold; color: #1a365d; margin-right: 10px;">Filtriraj analitiku prema reprezentaciji:</label>
+                    <select id="team-select" class="styled-select">
+                        </select>
+                </div>
+            </div>
+
+            <div id="graphs-container">
+                <div class="card">
+                    <h2 id="chart1-title">Grafikon 1</h2>
+                    <div id="chart1"></div>
+                </div>
+
+                <div id="extra-charts-advanced" class="hidden">
+                    <div class="card">
+                        <h2>Grafikon 2: Kretanje posjeda lopte (%) kroz turnir</h2>
+                        <div id="chart2-possession"></div>
+                    </div>
+                    <div class="card">
+                        <h2>Grafikon 3: Odnos ukupnih udaraca i udaraca u okvir gola</h2>
+                        <div id="chart3-attempts"></div>
+                    </div>
+                    <div class="card">
+                        <h2>Grafikon 4: Disciplina - Odnos faulova i žutih kartona po utakmicama</h2>
+                        <div id="chart4-discipline"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tooltip" class="hidden">
+        <p><span id="tooltip-value"></span></p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
