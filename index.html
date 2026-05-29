@@ -2,6 +2,7 @@
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Svijet Nogometa - Sveobuhvatni Analitički Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -9,25 +10,38 @@
 <body>
 
     <div class="navbar" id="nav-bar">
-        <button class="nav-btn active" onclick="switchScreen('general')">Karta osvajača i statistika</button>
+        <button class="nav-btn active" id="btn-general" onclick="switchScreen('general')">Općenito i globalna statistika</button>
     </div>
 
     <div class="container">
-        <h1>Vizualizacija podataka Svjetskih Prvenstava (D3.js)</h1>
+        <h1>Vizualizacija podataka Svjetskih Prvenstava (1990 - 2022)</h1>
 
         <div id="screen-general" class="screen">
             <div class="map-layout">
                 <div class="card map-card">
                     <h2>Karta svjetskih prvaka (Click-to-Zoom)</h2>
-                    <p class="subtitle">Kliknite na državu za automatsko zumiranje i prikaz statistike. Kliknite na ocean za reset.</p>
+                    <p class="subtitle">Kliknite na državu za automatsko zumiranje i prikaz povijesne statistike. Kliknite na ocean za reset pogleda.</p>
                     <div id="world-map"></div>
                 </div>
                 
                 <div class="card info-sidebar" id="sidebar-info">
                     <h2>Statistika države</h2>
                     <div id="sidebar-content">
-                        <p class="placeholder-text">Kliknite na državu na karti za prikaz podataka i zumiranje.</p>
+                        <p class="placeholder-text">Kliknite na neku od država na karti svijeta kako biste vidjeli njezinu ukupnu povijesnu statistiku i pokrenuli zumiranje.</p>
                     </div>
+                </div>
+            </div>
+
+            <div class="global-charts-grid">
+                <div class="card">
+                    <h2>⚽ Ukupan broj golova kroz povijest prvenstava</h2>
+                    <p class="subtitle">Kretanje ukupnog broja postignutih pogodaka po turnirima.</p>
+                    <div id="global-goals-chart"></div>
+                </div>
+                <div class="card">
+                    <h2>👥 Ukupna posjećenost stadiona po turnirima</h2>
+                    <p class="subtitle">Ukupan broj gledatelja uživo na stadionima kroz godine prvenstava.</p>
+                    <div id="global-attendance-chart"></div>
                 </div>
             </div>
         </div>
@@ -42,7 +56,10 @@
                     <select id="team-select" class="styled-select"></select>
                 </div>
             </div>
-
+            <div class="card bracket-card">
+                <h2>Knockout faza natjecanja (Tournament Bracket)</h2>
+                <div id="knockout-container" class="bracket-wrapper"></div>
+            </div>
             <div id="graphs-container">
                 <div class="card">
                     <h2 id="chart1-title">Grafikon 1</h2>
